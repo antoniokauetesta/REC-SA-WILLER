@@ -1,4 +1,4 @@
-# REC-SA-WILLER — MediConnect API
+# REC-SA-WILLER — API
 
 API REST desenvolvida para a avaliação prática de Desenvolvimento de Sistemas, utilizando **Node.js**, **Express**, **PostgreSQL** e **Prisma ORM 7.9.1**.
 
