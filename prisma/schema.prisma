@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Medico {
+  id             Int                   @id @default(autoincrement())
+  nome           String
+  crm            String                @unique
+  especialidades MedicoEspecialidade[]
+}
+
+model Especialidade {
+  id        Int                   @id @default(autoincrement())
+  nome      String
+  descricao String
+  medicos   MedicoEspecialidade[]
+}
+
+model MedicoEspecialidade {
+  id              Int @id @default(autoincrement())
+  medicoId        Int
+  especialidadeId Int
+
+  medico        Medico        @relation(fields: [medicoId], references: [id], onDelete: Cascade)
+  especialidade Especialidade @relation(fields: [especialidadeId], references: [id], onDelete: Cascade)
+
+  @@unique([medicoId, especialidadeId])
+}
