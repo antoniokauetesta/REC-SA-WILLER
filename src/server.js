@@ -118,6 +118,26 @@ app.post("/especialidades", async (req, res) => {
     }
 });
 
+app.delete("/especialidades/:id", async (req, res) => {
+    try {
+        const id = Number(req.params.id);
+
+        await prisma.especialidade.delete({
+            where: { id }
+        });
+
+        res.json({
+            mensagem: "Especialidade excluída com sucesso!"
+        });
+    } catch (error) {
+        console.error(error);
+
+        res.status(500).json({
+            erro: "Erro ao excluir especialidade"
+        });
+    }
+});
+
 app.post("/medicos/vincular", async (req, res) => {
     try {
         const { medicoId, especialidadeId } = req.body;
