@@ -1,19 +1,10 @@
 import "dotenv/config";
 import express from "express";
-import { PrismaPg } from "@prisma/adapter-pg";
-import { PrismaClient } from "../generated/prisma/client.ts";
+import { prisma } from "../src/lib/prisma.ts";
 
 const app = express();
 
 app.use(express.json());
-
-const adapter = new PrismaPg({
-    connectionString: process.env.DATABASE_URL
-});
-
-const prisma = new PrismaClient({
-    adapter
-});
 
 app.get("/", async (req, res) => {
     try {

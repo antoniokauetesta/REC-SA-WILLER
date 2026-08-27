@@ -1,7 +1,7 @@
 {
   "name": "rec-sa-willer",
   "version": "1.0.0",
-  "description": "",
+  "description": "API REST desenvolvida para a avaliação prática de Desenvolvimento de Sistemas, utilizando **Node.js**, **Express**, **PostgreSQL** e **Prisma ORM 7.9.1**.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
